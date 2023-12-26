@@ -1,16 +1,16 @@
 var resizeId;
 
-$(document).ready(function ($) {
+$(document).ready(function($) {
     "use strict";
 
-    $(".ts-bubble-border").each(function () {
+    $(".ts-bubble-border").each(function() {
         var $this = $(this);
         $this.prepend("<i></i><i></i><i></i><i></i><i></i>");
     });
 
-    $("#ts-content .ts-bubble-border, #ts-footer .ts-bubble-border").each(function () {
+    $("#ts-content .ts-bubble-border, #ts-footer .ts-bubble-border").each(function() {
         var $this = $(this);
-        $this.isInViewport(function (status) {
+        $this.isInViewport(function(status) {
             if (status === "entered") {
                 $this.addClass("in");
             } else if (status === "leaved") {
@@ -19,8 +19,8 @@ $(document).ready(function ($) {
         });
     });
 
-    $(".ts-promo-numbers").each(function () {
-        $(this).isInViewport(function (status) {
+    $(".ts-promo-numbers").each(function() {
+        $(this).isInViewport(function(status) {
             if (status === "entered") {
                 for (var i = 0; i < document.querySelectorAll(".odometer").length; i++) {
                     var el = document.querySelectorAll('.odometer')[i];
@@ -30,20 +30,20 @@ $(document).ready(function ($) {
         });
     });
 
-    $("body").imagesLoaded(function () {
+    $("body").imagesLoaded(function() {
         $("body").addClass("loading-done");
-        $("#ts-hero .ts-bubble-border").each(function () {
+        $("#ts-hero .ts-bubble-border").each(function() {
             var $this = $(this);
             var $active = $(this).find(".active");
 
             $this.width($this.find(".active").outerWidth());
             $this.height($this.find(".active").outerHeight());
 
-            setTimeout(function () {
+            setTimeout(function() {
                 $("#ts-hero .ts-bubble-border").addClass("in");
-                setInterval(function () {
+                setInterval(function() {
                     $this.find(".active").addClass("out");
-                    setTimeout(function () {
+                    setTimeout(function() {
                         $this.find(".active").removeClass("active out");
                         if ($active.next().length) {
                             $active.next().addClass("active");
@@ -67,21 +67,21 @@ $(document).ready(function ($) {
 
 
 
-    $(".ts-title-rotate span").each(function () {
+    $(".ts-title-rotate span").each(function() {
         //alert( $(this).width() );
     });
 
-    $('.navbar-nav .nav-link').on('click', function () {
+    $('.navbar-nav .nav-link').on('click', function() {
         $('.navbar-collapse').collapse('hide');
     });
 
-    $(".ts-img-into-bg").each(function () {
+    $(".ts-img-into-bg").each(function() {
         $(this).css("background-image", "url(" + $(this).find("img").attr("src") + ")");
     });
 
     //  Background
 
-    $("[data-bg-color], [data-bg-image], [data-bg-particles]").each(function () {
+    $("[data-bg-color], [data-bg-image], [data-bg-particles]").each(function() {
         var $this = $(this);
 
         if ($this.hasClass("ts-separate-bg-element")) {
@@ -97,7 +97,7 @@ $(document).ready(function ($) {
 
             if ($this.attr("data-bg-particles-line-color") || $this.attr("data-bg-particles-dot-color")) {
                 $this.find(".ts-background").append('<div class="ts-background-particles">');
-                $(".ts-background-particles").each(function () {
+                $(".ts-background-particles").each(function() {
                     var lineColor = $this.attr("data-bg-particles-line-color");
                     var dotColor = $this.attr("data-bg-particles-dot-color");
                     var parallax = $this.attr("data-bg-particles-parallax");
@@ -155,18 +155,18 @@ $(document).ready(function ($) {
 
     //  Parallax Background Image
 
-    $("[data-bg-parallax='scroll']").each(function () {
+    $("[data-bg-parallax='scroll']").each(function() {
         var speed = $(this).attr("data-bg-parallax-speed");
         var $this = $(this);
         var isVisible;
         var backgroundPosition;
 
-        $this.isInViewport(function (status) {
+        $this.isInViewport(function(status) {
             if (status === "entered") {
                 isVisible = 1;
                 var position;
 
-                $(window).scroll(function () {
+                $(window).scroll(function() {
                     if (isVisible === 1) {
                         position = $(window).scrollTop() - $this.offset().top;
                         backgroundPosition = (100 - (Math.abs((-$(window).height()) - position) / ($(window).height() + $this.height())) * 100);
@@ -184,16 +184,16 @@ $(document).ready(function ($) {
         });
     });
 
-    $(".ts-labels-inside-input input, .ts-labels-inside-input textarea").focusin(function () {
-        $(this).parent().find("label").addClass("focused");
-    })
-        .focusout(function () {
+    $(".ts-labels-inside-input input, .ts-labels-inside-input textarea").focusin(function() {
+            $(this).parent().find("label").addClass("focused");
+        })
+        .focusout(function() {
             if ($(this).val().length === 0) {
                 $(this).parent().find("label").removeClass("focused")
             }
         });
 
-    $("select").each(function () {
+    $("select").each(function() {
         $(this).wrap('<div class="select-wrapper"></div>');
     });
 
@@ -216,10 +216,10 @@ $(document).ready(function ($) {
             mainClass: 'mfp-fade',
             callbacks: {
                 // This prevents pushing the entire page to the right after opening Magnific popup image
-                open: function () {
+                open: function() {
                     $(".page-wrapper, .navbar-nav").css("margin-right", getScrollBarWidth());
                 },
-                close: function () {
+                close: function() {
                     $(".page-wrapper, .navbar-nav").css("margin-right", 0);
                 }
             }
@@ -260,19 +260,19 @@ $(document).ready(function ($) {
         });
     }
 
-    $(".ts-form-email [type='submit']").each(function () {
+    $(".ts-form-email [type='submit']").each(function() {
         var text = $(this).text();
         $(this).html("").append("<span>" + text + "</span>").prepend("<div class='status'><i class='fas fa-circle-notch fa-spin spinner'></i></div>");
     });
 
-    $(".ts-form-email .btn[type='submit']").on("click", function (e) {
+    $(".ts-form-email .btn[type='submit']").on("click", function(e) {
         var $button = $(this);
         var $form = $(this).closest("form");
         var pathToPhp = $(this).closest("form").attr("data-php-path");
         $form.validate({
-            submitHandler: function () {
+            submitHandler: function() {
                 $button.addClass("processing");
-                $.post(pathToPhp, $form.serialize(), function (response) {
+                $.post(pathToPhp, $form.serialize(), function(response) {
                     $button.addClass("done").find(".status").append(response).prop("disabled", true);
                 });
                 return false;
@@ -280,14 +280,14 @@ $(document).ready(function ($) {
         });
     });
 
-    $("form:not(.ts-form-email)").each(function () {
+    $("form:not(.ts-form-email)").each(function() {
         $(this).validate();
     });
 
-    $(".progress").each(function () {
+    $(".progress").each(function() {
         var $this = $(this);
         $this.find(".ts-progress-value").text($this.attr("data-progress-width"));
-        $this.isInViewport(function (status) {
+        $this.isInViewport(function(status) {
             if (status === "entered") {
                 $this.find(".progress-bar").width($this.attr("data-progress-width"));
                 $this.find(".ts-progress-value").css("left", $this.attr("data-progress-width"));
@@ -299,14 +299,14 @@ $(document).ready(function ($) {
 
     // On RESIZE actions
 
-    $(window).on("resize", function () {
+    $(window).on("resize", function() {
         clearTimeout(resizeId);
         resizeId = setTimeout(doneResizing, 250);
     });
 
     // On SCROLL actions
 
-    $(window).on("scroll", function () {
+    $(window).on("scroll", function() {
         if ($(window).scrollTop() >= $(window).height()) {
             $(".navbar").addClass("in");
         } else {

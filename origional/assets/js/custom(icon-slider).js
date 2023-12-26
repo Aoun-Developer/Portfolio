@@ -29,8 +29,8 @@ Assigned to: ThemeForest
 
         },
         responsor_slider: function () {
-            if ($('.slider_sections .swiper-container').length > 0) {
-                var swiper = new Swiper('.slider_sections .swiper-container', {
+            if ($('.port_responsor_setions .swiper-container').length > 0) {
+                var swiper = new Swiper('.port_responsor_setions .swiper-container', {
                     slidesPerView: 5,
                     spaceBetween: 30,
                     loop: true,
@@ -46,10 +46,10 @@ Assigned to: ThemeForest
                             slidesPerView: 2,
                             spaceBetween: 10
                         },
-                        // when window width is <= 767px
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 10
+                        // when window width is <= 480px
+                        767: {
+                            slidesPerView: 2,
+                            spaceBetween: 20
                         },
                         // when window width is <= 640px
                         991: {

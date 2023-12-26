@@ -26,7 +26,7 @@
         about_opendetails: function () {
             if ($('.icon').length > 0) {
                 $('.icon').on('click', function () {
-                    $('.about_left').toggleClass('open_details');
+                    $('.about_leftsection').toggleClass('open_details');
                 });
             }
         }
