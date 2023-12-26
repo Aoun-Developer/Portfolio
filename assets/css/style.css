@@ -2241,22 +2241,59 @@ section#hire-banner:hover .tt-pn-hover-title {
     transition: all 0.3s ease-in-out;
 }
 
+.slider_sections .slider_icons img {
+    margin-top: 20px;
+    height: 70px;
+    object-fit: contain;
+    /* filter: drop-shadow(2px 4px 6px black); */
+    transition: transform 0.3s linear;
+}
+
+.swiper-slide {
+    perspective: 500px;
+}
+
+.swiper-slide:hover .slider_icons {
+    transform: rotateX(-10deg);
+    transition: transform .3s;
+}
+
 .slider_sections .slider_icons {
     text-align: center;
-    height: 100px;
+    width: 200px;
+    box-shadow: 0 0 7px 2px #ffffff0a;
+    border-radius: 10px;
+    height: 180px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    transform-origin: top center;
+    --rotate: 20deg;
+    transform: rotateX(var(--rotate));
+    transition: transform .2s;
 }
 
-.slider_sections .slider_icons img {
-    height: inherit;
-    object-fit: contain;
-    filter: drop-shadow(2px 4px 6px black);
-    transition: transform 0.3s linear;
+.slider_sections .slider_icons:before,
+.slider_sections .slider_icons:after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 30px;
 }
 
-.slider_sections .slider_icons:hover img {
-    /* transform: scale(1.1); */
-    transform: rotate3d(1, 1, 1, 338deg);
-    transition: transform 0.3s linear;
+h4.slider_icon_name {
+    font-size: 18px;
+}
+
+.slider_sections .slider_icons:before {
+    left: 20px;
+}
+
+.slider_sections .slider_icons:after {
+    right: 20px;
 }
 
 .slider_icons svg {
@@ -2438,7 +2475,7 @@ footer#footer {
     }
 }
 
-@media screen and (max-width: 1100px){
+@media screen and (max-width: 1100px) {
     .main_heading .sub_heading span {
         font-size: 17px;
     }
@@ -2635,12 +2672,23 @@ footer#footer {
 }
 
 @media screen and (max-width: 767px) {
-    .row.skill-block>div:last-child {padding-top: 0;}
-    section#banner, .background_banner {
+    .slider_sections .slider_icons {
+        margin: auto;
+    }
+
+    .row.skill-block>div:last-child {
+        padding-top: 0;
+    }
+
+    section#banner,
+    .background_banner {
         height: 100%;
     }
+
     .slider_sections .swiper-slide img {
-        padding: 20px 0;
+        padding: 20px 0 0;
+        height: 100px;
+        margin-top: 0;
     }
 
     .services-table {
