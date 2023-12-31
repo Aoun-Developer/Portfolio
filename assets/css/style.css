@@ -856,6 +856,18 @@ div#university .edu_info.edu_right_info {
     border-left: 12px solid #ff517e;
 }
 
+div#university {
+    position: relative;
+}
+
+.animated_image {
+    content: "";
+    position: absolute;
+    filter: drop-shadow(2px 4px 6px white);
+    left: 10%;
+    top: -20%;
+}
+
 div#college .edu_info.edu_right_info {
     border-right: 12px solid #ffc454;
 }
